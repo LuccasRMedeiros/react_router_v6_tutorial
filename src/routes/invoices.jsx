@@ -1,7 +1,18 @@
+import { Link } from 'react-router-dom';
+import { getInvoices } from '../data';
+
 export default function Invoices() {
+  let invoices = getInvoices();
   return (
-    <main>
-      <h2>Invoice</h2>
-    </main>
+    <div>
+      <h2>Invoices</h2>
+      <nav>
+        {invoices.map((invoice) => {
+          <Link to={`/invoices/${invoice.number}`} key={invoice.number}>
+            {invoice.name}
+          </Link>
+        })}
+      </nav>
+    </div>
   );
 }

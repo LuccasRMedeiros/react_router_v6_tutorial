@@ -5,13 +5,12 @@ export default function Invoices() {
   let invoices = getInvoices();
   return (
     <div>
-      <h2>Invoices</h2>
       <nav>
-        {invoices.map((invoice) => {
+        {invoices.map((invoice) => (
           <Link to={`/invoices/${invoice.number}`} key={invoice.number}>
             {invoice.name}
           </Link>
-        })}
+        ))}
       </nav>
     </div>
   );
